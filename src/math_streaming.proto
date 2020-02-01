@@ -1,0 +1,19 @@
+syntax = "proto3";
+package mathtest;
+
+//Defines the service
+service MathTest{
+    //Function invoked to send the request
+    rpc sendRequest (MathRequest) returns (stream MathReply) {}
+}
+
+//The request message containing requested numbers
+message MathRequest{
+    int32 a = 1;
+    int32 b = 2;
+}
+
+//The response message containing response
+message MathReply{
+    int32 result = 1;
+}

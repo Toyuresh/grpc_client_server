@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package dummy;
+
+service DummyService
+{
+    rpc Unary(HelloRequest) returns (HelloReply) {}
+
+    rpc ServerClient(HelloRequest) returns (stream HelloReply){}
+
+    rpc ClientServer(stream HelloRequest) returns (HelloReply){}
+
+    rpc Bidirectional(stream HelloRequest) returns (stream HelloRequest){}
+
+}
+
+message HelloRequest{
+    string name = 1;
+}
+
+//The response message conatining the greetings
+message HelloReply{
+    string message = 1;
+}

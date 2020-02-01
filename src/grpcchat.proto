@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package grpcchat;
+
+service GrpcChat{
+    rpc yellEcho(Msg) returns (Msg) {}
+    rpc yellEchoing(Msg) returns (stream Msg) {}
+    rpc yellingEcho(stream Msg) returns (Msg){}
+    rpc yellingEchoing(stream Msg) returns (stream Msg) {}
+}
+
+message Msg{
+    string content = 1;
+}
